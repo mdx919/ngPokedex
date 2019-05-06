@@ -1,0 +1,21 @@
+.view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 3px green solid;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 45%;
+}
+
+.description {
+    width: 45%;
+    border: 2px black solid;
+    padding: 10px;
+    border-radius: 5px;
+    color: blue;
+}

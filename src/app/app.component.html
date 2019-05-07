@@ -3,8 +3,26 @@
   <h1>
    Welcome to {{ title }} Home!
   </h1>
+  <img class="poke-wall" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0haM1kGPiKI24kvyhjl6F5ZOBDYTk-zqoDNn4QFnQxszryp0D" width="30%" height="20%" />
 </div>
-<h2>All Pokemons</h2>
+
+<div class="topnav">
+    <h2>Search For Pokemons</h2>
+  <input class="search-input" type="text" placeholder="Search for pokemons.."  #searchInput>
+  <select class="dropdown" name="keywords" #dropdown>
+      <option value="0">What to look for..</option>
+      <option value="name">Pokemon Name</option>
+      <option value="attacks">Pokemon Attack Name</option>
+      <option value="weaknesses">Pokemon Weakness Type</option>
+      <option value="types">Pokemon Types</option>
+      <option value="rarity">Pokemon Rarity</option>
+      <option value="lvl">Pokemon Min Level</option>
+      <option value="hp">Pokemon Min Health Point</option>
+      <option value="evolvesFrom">Pokemon Evolves From</option>
+    </select>
+  <button class="search-button" (click)="startSearch(searchInput.value, dropdown.value)">Search</button>
+</div>
+
 <ul class="pokemons">
   
   <li *ngFor="let pokemon of pokemons" >
@@ -18,9 +36,9 @@
           <p class="badge">Types: {{pokemon.types}}</p>
           <p class="badge">Evolves From: {{pokemon.evolvesFrom}}</p>
           <p class="badge">Rarity: {{pokemon.rarity}}</p>
-          <!-- {{pokemon.ability ?  -->
-            <!-- <p class="badge">Ability: </p> -->
-          <!-- <p class="badge">Name: {{pokemon.ability.name}}</p> -->
+          <!-- {{pokemon.ability ? 
+            <p class="badge">Ability: </p>
+          <p class="badge">Name: {{pokemon.ability.name}}</p> -->
           <!-- <p class="badge">Type: {{pokemon.ability.type}}</p> -->
           <!-- <p class="badge">Description: {{pokemon.ability.text}}</p> -->
           <!-- : -->
@@ -47,17 +65,17 @@
                   <p class="badge">Type: {{weakness.type}}</p>
                   <p class="badge">Value: {{weakness.value}}</p>
               </li>
-          </ul>
-          <!-- <p class="badge">Attacks: {{pokemon}}</p> -->
-          <!-- <p class="badge">Name: {{pokemon.name}}</p> -->
+          </ul> -->
+          <p class="badge">Attacks: {{pokemon}}</p>
+          <p class="badge">Name: {{pokemon.name}}</p>
         </div>
-        <!-- <nav>
+        <nav>
             <a routerLink="/pokemons"><p class="badge">{{pokemon.name}}</p> </a>
-        </nav> -->
+        </nav>
         
     </div>
 
   </li>
-</ul>
+</ul> 
 
 <router-outlet></router-outlet>

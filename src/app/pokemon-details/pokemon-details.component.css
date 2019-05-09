@@ -1,0 +1,22 @@
+.image {
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+

@@ -1,0 +1,37 @@
+<div>
+    {{pageTitle}}
+</div>
+<div class="image" *ngIf='pokemon'><img src={{pokemon.imageUrlHiRes}} width="350em" /></div>
+<div class="container" style="margin-bottom: 20px;" *ngIf='pokemon'>
+    <h5 class="card-title">{{pokemon.name}}</h5>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-info">Health: {{pokemon.hp}}</li>
+        <li class="list-group-item list-group-item-info">Level: {{pokemon.level}}</li>
+        <li class="list-group-item list-group-item-info">Types: {{pokemon.types}}</li>
+        <li class="list-group-item list-group-item-info">Evolves From: {{pokemon.evolvesFrom}}</li>
+        <li class="list-group-item list-group-item-info">Rarity: {{pokemon.rarity}}</li>
+        <li class="list-group-item list-group-item-success">Attacks:
+            <ul class="list-group" *ngFor="let attacks of pokemon.attacks" style="margin-top: 1em;">
+                    <li class="list-group-item list-group-item-warning">Attack Type: {{attacks.name}}</li>
+                    <li class="list-group-item list-group-item-warning">Converted Energy Cost: {{attacks.convertedEnergyCost}}</li>
+                    <li class="list-group-item list-group-item-warning">Damage: {{attacks.damage}}</li>
+                    <li class="list-group-item list-group-item-warning">Hint: {{attacks.text}}</li>
+            </ul>
+        </li>
+        <li class="list-group-item list-group-item-danger">Weaknesses:
+            <ul class="list-group" *ngFor="let weakness of pokemon.weaknesses" style="margin-top: 1em;">
+                    <li class="list-group-item list-group-item-warning">Weakness Type: {{weakness.type}}</li>
+                    <li class="list-group-item list-group-item-warning">Value: {{weakness.value}}</li>
+            </ul>
+        </li>
+      </ul>
+
+  <div class="card-footer">
+    <button class="btn btn-outline-secondary"
+      (click)='onBack()'
+      style='width: 100px; margin-bottom: 2em;'
+    >
+      Back
+    </button>
+  </div>
+</div>

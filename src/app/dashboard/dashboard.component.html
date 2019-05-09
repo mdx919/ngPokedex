@@ -1,54 +1,26 @@
-<ul class="pokemons">
-  
-    <li *ngFor="let pokemon of pokemons" >
-      <div class="view">
-          <div class="image"><img src={{pokemon.imageUrlHiRes}} /></div>
-          <div class="description">
-            <h2>Description</h2>
-            <p class="badge">Name: {{pokemon.name}}</p>
-            <p class="badge">Health: {{pokemon.hp}}</p>
-            <p class="badge">Level: {{pokemon.level}}</p>
-            <p class="badge">Types: {{pokemon.types}}</p>
-            <p class="badge">Evolves From: {{pokemon.evolvesFrom}}</p>
-            <p class="badge">Rarity: {{pokemon.rarity}}</p>
-            <!-- {{pokemon.ability ? 
-              <p class="badge">Ability: </p>
-            <p class="badge">Name: {{pokemon.ability.name}}</p> -->
-            <!-- <p class="badge">Type: {{pokemon.ability.type}}</p> -->
-            <!-- <p class="badge">Description: {{pokemon.ability.text}}</p> -->
-            <!-- : -->
-            <!-- null -->
-            <!-- }} -->
-            
-            <p class="badge">Attacks: </p>
-            <ul class="pokemons">
-                <li *ngFor="let attacks of pokemon.attacks" >
-                    <p class="badge">Types: {{attacks.name}}</p>
-                    <p class="badge">Converted Energy Cost: {{attacks.convertedEnergyCost}}</p>
-                    <p class="badge">Damage: {{attacks.damage}}</p>
-                    <p class="badge">Hint: {{attacks.text}}</p>
-                    <ul class="pokemons">
-                        <li *ngFor="let cost of attacks.cost" >
-                            <p class="badge">Cost: {{cost}}</p>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <p class="badge">Weakness: </p>
-            <ul class="pokemons">
-                <li *ngFor="let weakness of pokemon.weaknesses" >
-                    <p class="badge">Type: {{weakness.type}}</p>
-                    <p class="badge">Value: {{weakness.value}}</p>
-                </li>
-            </ul> -->
-            <p class="badge">Attacks: {{pokemon}}</p>
-            <p class="badge">Name: {{pokemon.name}}</p>
-          </div>
-          <nav>
-              <a routerLink="/pokemons"><p class="badge">{{pokemon.name}}</p> </a>
-          </nav>
-          
-      </div>
-  
-    </li>
-  </ul> 
+        <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Pokemon Name</th>
+                    <th>Level</th>
+                    <th>HP</th>
+                    <th>Type</th>
+                    <th>Evolves From</th>
+                    <th>Rarity</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let pokemon of pokemons">
+                  <tr>
+                    <td><div class="image"><img src={{pokemon.imageUrlHiRes}} width="45px"/></div></td>
+                    <td>
+                        <a routerLink="/pokemons/{{pokemon.number}}">{{pokemon.name}}</a>
+                    </td>
+                    <td>{{pokemon.level}}</td>
+                    <td>{{pokemon.hp}}</td>
+                    <td>{{pokemon.types}}</td>
+                    <td>{{pokemon.evolvesFrom}}</td>
+                    <td>{{pokemon.rarity}}</td>
+                  </tr>
+                </tbody>
+        </table>

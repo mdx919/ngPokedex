@@ -1,30 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-   Welcome to {{ title }} Home!
-  </h1>
-  <img class="poke-wall" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0haM1kGPiKI24kvyhjl6F5ZOBDYTk-zqoDNn4QFnQxszryp0D" width="30%" height="20%" />
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand">Welcome to {{ title }} Home!</a>
+  <ul class="nav nav-pills">
+    <li><a class="nav-link" routerLink='/'>Home</a></li>
+    <li><a class="nav-link" routerLink='/pokemons'>All Pokemons</a></li>
+    <li><a class="nav-link">About Pokemons</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
 
-<div class="topnav">
-    <h2>Search For Pokemons</h2>
-  <input class="search-input" type="text" placeholder="Search for pokemons.."  #searchInput>
-  <select class="dropdown" name="keywords" #dropdown>
-      <option value="0">What to look for..</option>
-      <option value="name">Pokemon Name</option>
-      <option value="attacks">Pokemon Attack Name</option>
-      <option value="weaknesses">Pokemon Weakness Type</option>
-      <option value="types">Pokemon Types</option>
-      <option value="rarity">Pokemon Rarity</option>
-      <option value="lvl">Pokemon Min Level</option>
-      <option value="hp">Pokemon Min Health Point</option>
-      <option value="evolvesFrom">Pokemon Evolves From</option>
-    </select>
-  <button class="search-button" (click)="startSearch(searchInput.value, dropdown.value)">Search</button>
-</div>
-
-  <div *ngFor="let pokemon of pokemons" >
-      <button routerLink="/pokemon/:{{pokemon.id}}">{{pokemon.name}}</button>
-  </div>
-
-<router-outlet></router-outlet>

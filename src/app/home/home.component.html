@@ -1,0 +1,50 @@
+<div style="text-align:center; margin-top: 2em;">
+  <img class="poke-wall" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0haM1kGPiKI24kvyhjl6F5ZOBDYTk-zqoDNn4QFnQxszryp0D" width="50%" height="30%" />
+</div>
+
+<div class="topnav">
+    <h2>Search For Pokemons</h2>
+  <input class="search-input" type="text" placeholder="Search for pokemons.."  #searchInput>
+  <select class="dropdown" name="keywords" #dropdown>
+      <option value="0">What to look for..</option>
+      <option value="name">Pokemon Name</option>
+      <option value="attacks">Pokemon Attack Name</option>
+      <option value="weaknesses">Pokemon Weakness Type</option>
+      <option value="types">Pokemon Types</option>
+      <option value="rarity">Pokemon Rarity</option>
+      <option value="lvl">Pokemon Min Level</option>
+      <option value="hp">Pokemon Min Health Point</option>
+      <option value="evolvesFrom">Pokemon Evolves From</option>
+    </select>
+  <button class="btn btn-primary" style="margin-top: 20px; width: 15em;" (click)="startSearch(searchInput.value, dropdown.value)">Search</button>
+</div>
+
+  <div *ngFor="let pokemon of pokemons" >
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Pokemon Name</th>
+              <th>Level</th>
+              <th>HP</th>
+              <th>Type</th>
+              <th>Evolves From</th>
+              <th>Rarity</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let pokemon of pokemons">
+            <tr>
+              <td><div class="image"><img src={{pokemon.imageUrlHiRes}} width="45px"/></div></td>
+              <td>
+                  <a routerLink="/pokemons/{{pokemon.number}}">{{pokemon.name}}</a>
+              </td>
+              <td>{{pokemon.level}}</td>
+              <td>{{pokemon.hp}}</td>
+              <td>{{pokemon.types}}</td>
+              <td>{{pokemon.evolvesFrom}}</td>
+              <td>{{pokemon.rarity}}</td>
+            </tr>
+          </tbody>
+  </table>
+
+  </div>
